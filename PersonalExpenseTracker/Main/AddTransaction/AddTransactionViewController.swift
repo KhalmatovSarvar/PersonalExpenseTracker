@@ -16,9 +16,9 @@ class AddTransactionViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     init(isFromExpenses: Bool?, transaction: Transaction?) {
+        super.init(nibName: nil, bundle: nil)
         print("isFromExpenses: \(String(describing: isFromExpenses)) in init")
         viewModel = AddTransactionViewModel(isFromExpenses: isFromExpenses, transaction: transaction)
-        super.init(nibName: nil, bundle: nil)
         
         
     }
@@ -110,6 +110,7 @@ class AddTransactionViewController: UIViewController {
         super.viewDidLayoutSubviews()
         categoryCollectionView.invalidateIntrinsicContentSize()
         categoryCollectionView.layoutIfNeeded()
+        updateCollectionViewHeight()
     }
     
     private func setUpBindings(){
@@ -124,6 +125,14 @@ class AddTransactionViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.configureUI() // Call your reload function here
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$categories
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] categories in
+                self?.reloadCollectionView()
+                self?.updateCollectionViewHeight() // Call your reload function here
             }
             .store(in: &cancellables)
         
@@ -211,7 +220,10 @@ class AddTransactionViewController: UIViewController {
         setupDateButtonStyles()
         setupConstraints()
         setUpDatePicker()
+        updateCollectionViewHeight()
     }
+
+    
     
     @objc private func addButtonTapped() {
         viewModel.addTransaction().sink { completion in

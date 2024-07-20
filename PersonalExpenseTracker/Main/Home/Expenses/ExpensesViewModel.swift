@@ -36,8 +36,9 @@ class ExpensesViewModel {
         }
     }
     
-    init(appDataSource: AppDataSource) {
+    init() {
         setupCDPublisher()
+        observeCoreDataChanges()
     }
     
     func fetchTransactions() -> AnyPublisher<[Transaction], Error> {
@@ -80,6 +81,14 @@ class ExpensesViewModel {
                 })
                 .store(in: &cancellables)
         }
+    
+    private func observeCoreDataChanges() {
+          NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave, object: coreDataManager.context)
+              .sink { [weak self] _ in
+                  self?.setupCDPublisher()
+              }
+              .store(in: &cancellables)
+      }
         
 
     

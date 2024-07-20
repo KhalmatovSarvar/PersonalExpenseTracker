@@ -17,8 +17,7 @@ class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Main"
-        coreDataManager = CoreDataManager()
-        appDataSource = AppDataSource(coreDataManager: coreDataManager)
+       
 
         
         setUpTabs()
@@ -53,7 +52,7 @@ class HomeViewController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)], for: .selected)
         
-        let expensesVC = ExpensesViewController(appDataSource: appDataSource)
+        let expensesVC = ExpensesViewController()
         expensesVC.tabBarItem = UITabBarItem(title: "Expenses", image: nil, selectedImage: nil)
         
         let incomeVC = IncomeViewController()

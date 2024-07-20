@@ -207,6 +207,15 @@ class FirestoreManager {
         }
         .eraseToAnyPublisher()
     }
+    
+    func saveCategoriesToFirestore(categories: [Category], userId: String) -> AnyPublisher<Void, Error> {
+            let savePublishers = categories.map { saveCategoryToFirestore(category: $0, userId: userId) }
+            
+            return Publishers.MergeMany(savePublishers)
+                .collect()
+                .map { _ in () }
+                .eraseToAnyPublisher()
+        }
 
     
     

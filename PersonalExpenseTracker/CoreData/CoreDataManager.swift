@@ -11,16 +11,6 @@ class CoreDataManager {
       }()
          init() {}
         
-        let initialCategories: [Category] = [
-                Category(title: "Food", color: .systemBlue, icon: ImageWrapper(image: UIImage(systemName: "circle.square")!)),
-                Category(title: "Shopping", color: .systemGreen, icon: ImageWrapper(image: UIImage(systemName: "figure.walk")!)),
-                Category(title: "Transport", color: .systemOrange, icon: ImageWrapper(image: UIImage(systemName: "location.fill")!)),
-                Category(title: "Entertainment", color: .systemPurple, icon: ImageWrapper(image: UIImage(systemName: "house.fill")!)),
-                Category(title: "Health", color: .systemRed, icon: ImageWrapper(image: UIImage(systemName: "fan.fill")!)),
-                Category(title: "Utilities", color: .systemYellow, icon: ImageWrapper(image: UIImage(systemName: "location.fill")!))
-
-        ]
-        
         lazy var persistentContainer: NSPersistentContainer = {
             let container = NSPersistentContainer(name: "PersonalExpenseTracker")
             container.loadPersistentStores { (storeDescription, error) in
@@ -31,16 +21,7 @@ class CoreDataManager {
             return container
         }()
         
-        
-    // Save Context Helper
-        private func saveContext(_ context: NSManagedObjectContext) {
-            do {
-                try context.save()
-                print("Changes saved to Core Data successfully")
-            } catch {
-                print("Failed to save changes to Core Data: \(error.localizedDescription)")
-            }
-        }
+ 
     
     // Generic Save Entity
         func saveEntity<T: NSManagedObject>(_ entity: T) -> AnyPublisher<Void, Error> {
@@ -104,6 +85,18 @@ class CoreDataManager {
                return true // Treat error as empty database
            }
        }
+    
+    func saveContext(_ context: NSManagedObjectContext) {
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
+            }
+        }
+
     
       }
 

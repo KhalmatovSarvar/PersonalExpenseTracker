@@ -12,6 +12,7 @@ class AddTransactionViewModel {
     var info: String = ""
     var category: Category? = nil
     var date: Date = Date()
+    var id: UUID = UUID()
     
     // Indicates whether the transaction is an expense or income
     let isFromExpenses: Bool?
@@ -21,7 +22,6 @@ class AddTransactionViewModel {
     private let coreDataManager = CoreDataManager.shared
     private let dataRepo = DataRepository()
     private var cancellables = Set<AnyCancellable>()
-    private var cdPublisher: CDPublisher<CategoryDB>?
     
     init(isFromExpenses: Bool?, transaction: Transaction?) {
         self.isFromExpenses = isFromExpenses
@@ -32,33 +32,54 @@ class AddTransactionViewModel {
             self.amount = transaction.amount
             self.info = transaction.info
             self.date = transaction.date
+            self.id = transaction.id
         } else {
             self.amount = ""
             self.info = ""
         }
         
-        fetchCategories()
+        setupCDPublisherForCategories()
     }
-
-
-    func fetchCategories() {
+    
+    func fetchCategories() -> AnyPublisher<[Category], Error> {
+        print("fetchCategories called")
         let fetchRequest: NSFetchRequest<CategoryDB> = CategoryDB.fetchRequest()
-        cdPublisher = CDPublisher(request: fetchRequest, context: coreDataManager.context)
+        fetchRequest.predicate = nil
+        fetchRequest.sortDescriptors = []
         
-        cdPublisher?.map { categories -> [Category] in
-                return categories.compactMap { $0.toCategory() }
+        let cdPublisher = CDPublisher(request: fetchRequest, context: coreDataManager.context)
+        
+        return cdPublisher
+            .map { categories in
+                categories.compactMap { $0.toCategory() }
             }
+            .handleEvents(receiveSubscription: { _ in
+                print("fetchCategories subscription received")
+            }, receiveOutput: { output in
+                print("fetchCategories output received: \(output.count) categories")
+            }, receiveCompletion: { completion in
+                print("fetchCategories completion received: \(completion)")
+            }, receiveCancel: {
+                print("fetchCategories subscription canceled")
+            })
+            .eraseToAnyPublisher()
+    }
+    
+    private func setupCDPublisherForCategories() {
+        fetchCategories()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 // Handle completion if needed
-            }, receiveValue: { [weak self] convertedCategories in
-                self?.categories = convertedCategories  // Assign the converted categories
-                self?.isDataChanged = true  // Set the flag to indicate data change
+                if case let .failure(error) = completion {
+                    print("Failed to fetch categories: \(error.localizedDescription)")
+                }
+            }, receiveValue: { [weak self] fetchedCategories in
+                self?.categories = fetchedCategories
+                self!.isDataChanged = true
+                print("Categories count: \(self?.categories.count ?? 0)")
             })
             .store(in: &cancellables)
     }
-    
-  
     
     // Add a new transaction to Core Data
     func addTransaction() -> AnyPublisher<Void, Error> {
@@ -82,32 +103,40 @@ class AddTransactionViewModel {
         return dataRepo.saveTransaction(transaction: newTransaction)
     }
     
-    func updateTransaction() {
-            guard let transaction = transaction, let category = category else {
-                return
-            }
+    func updateTransaction() -> AnyPublisher<Void, Error> {
+        // Ensure required properties are set
+        guard let type = transaction?.type,
+              let category = category,
+              let transaction = transaction
+        else {
+            return Fail(error: NSError(domain: "UpdateTransactionError", code: 400, userInfo: [NSLocalizedDescriptionKey: "Missing required transaction information."]))
+                .eraseToAnyPublisher()
+        }
         
-        let newTransaction = Transaction(
-            id: UUID(),
-            type: transaction.type,
+        // Create new transaction with validated values
+        let updatedTransaction = Transaction(
+            id: id,
+            type: type,
             category: category,
             amount: amount,
             date: date,
             currency: currency.rawValue,
             info: info
         )
-            
-            coreDataManager.updateTransactionCoreData(withId: transaction.id, newTransaction: newTransaction)
-                .sink(receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        print("Transaction updated successfully")
-                    case .failure(let error):
-                        print("Failed to update transaction: \(error)")
-                    }
-                }, receiveValue: { _ in
-                    // Handle any specific actions on success, if needed
-                })
-                .store(in: &cancellables)
-        }
+        
+        print("Updated Transaction: \(updatedTransaction)")  // Debug print to see the updated transaction
+        
+        // Call the repository update method
+        return dataRepo.updateTransaction(withId: transaction.id , newTransaction: updatedTransaction)
+            .handleEvents(receiveCompletion: { completion in
+                            switch completion {
+                            case .finished:
+                                print("Transaction update completed successfully.")
+                            case .failure(let error):
+                                print("Transaction update failed with error: \(error.localizedDescription)")
+                            }
+                        })
+                        .eraseToAnyPublisher()
+    }
+    
 }

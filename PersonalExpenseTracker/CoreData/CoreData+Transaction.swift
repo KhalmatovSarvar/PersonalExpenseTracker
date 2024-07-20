@@ -91,37 +91,88 @@ extension CoreDataManager {
         }
         
     // Update Transaction based on id
+//    func updateTransactionCoreData(newTransaction: Transaction) -> AnyPublisher<Void, Error> {
+//        let context = persistentContainer.viewContext
+//
+//        return Future<Void, Error> { promise in
+//            context.perform {
+//                let fetchRequest: NSFetchRequest<TransactionDB> = TransactionDB.fetchRequest()
+//                fetchRequest.predicate = NSPredicate(format: "id == %@", newTransaction.id as CVarArg)
+//
+//                do {
+//                    let results = try context.fetch(fetchRequest)
+//                    guard let transactionDB = results.first else {
+//                        throw NSError(domain: "UpdateError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Transaction with id \(newTransaction.id) not found."])
+//                    }
+//
+//                    // Update transactionDB with newTransaction values
+//                    transactionDB.id = newTransaction.id
+//                    transactionDB.type = newTransaction.type.rawValue
+//                    transactionDB.amount = Double(newTransaction.amount) ?? 0.0
+//                    transactionDB.date = newTransaction.date
+//                    transactionDB.categoryName = newTransaction.category.title
+//
+//                    try context.save()
+//                    promise(.success(()))
+//                } catch {
+//                    context.rollback() // Ensure any partial changes are rolled back in case of an error
+//                    promise(.failure(error))
+//                }
+//            }
+//        }
+//        .eraseToAnyPublisher()
+//    }
     func updateTransactionCoreData(withId id: UUID, newTransaction: Transaction) -> AnyPublisher<Void, Error> {
-        let context = persistentContainer.viewContext
-        
-        return Future<Void, Error> { promise in
-            context.perform {
-                let fetchRequest: NSFetchRequest<TransactionDB> = TransactionDB.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-                
-                do {
-                    let results = try context.fetch(fetchRequest)
-                    guard let transactionDB = results.first else {
-                        throw NSError(domain: "UpdateError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Transaction with id \(id) not found."])
+            let context = persistentContainer.viewContext
+            
+            return Future<Void, Error> { promise in
+                context.perform {
+                    let fetchRequest: NSFetchRequest<TransactionDB> = TransactionDB.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+                    
+                    do {
+                        let results = try context.fetch(fetchRequest)
+                        guard let transactionDB = results.first else {
+                            throw NSError(domain: "UpdateError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Transaction with id \(id) not found."])
+                        }
+                        
+                        // Update transactionDB with newTransaction values
+                        transactionDB.id = newTransaction.id
+                        transactionDB.type = newTransaction.type.rawValue
+                        transactionDB.amount = Double(newTransaction.amount) ?? 0.0
+                        transactionDB.date = newTransaction.date
+                        transactionDB.categoryName = newTransaction.category.title
+                        
+                        print("Saving context...")
+                        self.saveContext(context)
+                        print("Context saved successfully.")
+                        
+                        promise(.success(()))
+                    } catch {
+                        print("Error during fetch or save: \(error.localizedDescription)")
+                        promise(.failure(error))
                     }
-                    
-                    // Update transactionDB with newTransaction values
-                    transactionDB.id = newTransaction.id
-                    transactionDB.type = newTransaction.type.rawValue
-                    transactionDB.amount = Double(newTransaction.amount) ?? 0.0
-                    transactionDB.date = newTransaction.date
-                    transactionDB.categoryName = newTransaction.category.title
-                    
-                    self.saveContext(context)
-                    promise(.success(()))
-                } catch {
-                    promise(.failure(error))
                 }
             }
+            .eraseToAnyPublisher()
         }
-        .eraseToAnyPublisher()
+    
+    
+    
+    func updateTransactionsToCoreData(transactions: [Transaction]) -> AnyPublisher<Void, Error> {
+        // Create a sequence of publishers for each transaction
+        let updateTransactions = transactions.map { transaction in
+            self.updateTransactionCoreData(withId:transaction.id, newTransaction: transaction)
+        }
+        
+        // Use zip to combine all publishers into a single publisher
+        return Publishers.Sequence(sequence:updateTransactions)
+            .flatMap { $0 } // Flatten the output of each save transaction publisher
+            .collect() // Collect all values into a single array
+            .tryMap { _ in } // Transform output to Void
+            .eraseToAnyPublisher()
     }
-
+    
     
     func deleteTransactionCoreData(with id: UUID) -> AnyPublisher<Void, Error> {
             let fetchRequest: NSFetchRequest<TransactionDB> = TransactionDB.fetchRequest()
@@ -147,36 +198,25 @@ extension CoreDataManager {
             .eraseToAnyPublisher()
         }
         
-    
-    // Save Context Helper
-    private func saveContext(_ context: NSManagedObjectContext) {
-        do {
-            try context.save()
-            print("Changes saved to Core Data successfully")
-        } catch {
-            print("Failed to save changes to Core Data: \(error.localizedDescription)")
-        }
-    }
+
     
     func deleteTransactionsFromCoreData(transactions: [Transaction]) -> AnyPublisher<Void, Error> {
-          let context = persistentContainer.viewContext
-          
           return Future<Void, Error> { promise in
-              context.perform {
+              self.context.perform {
                   // Fetch existing Core Data transactions by IDs
                   let fetchRequest: NSFetchRequest<TransactionDB> = TransactionDB.fetchRequest()
                   fetchRequest.predicate = NSPredicate(format: "id IN %@", transactions.map { $0.id })
                   
                   do {
-                      let coreDataTransactions = try context.fetch(fetchRequest)
+                      let coreDataTransactions = try self.context.fetch(fetchRequest)
                       
                       // Delete the fetched transactions
                       for transaction in coreDataTransactions {
-                          context.delete(transaction)
+                          self.context.delete(transaction)
                       }
                       
                       // Save the context
-                      try context.save()
+                      try self.context.save()
                       promise(.success(()))
                   } catch {
                       promise(.failure(error))

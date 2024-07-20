@@ -24,6 +24,11 @@ class HomeViewModel {
               } else {
                   setupTransactionListener()
               }
+        
+        if !UserDefaults.standard.bool(forKey: "initialCategoriesAdded") {
+            addInitialCategories()
+            UserDefaults.standard.set(true, forKey: "initialCategoriesAdded")
+        }
        }
 
     private func setupTransactionListener(){
@@ -88,4 +93,20 @@ class HomeViewModel {
                         })
                         .store(in: &cancellables)
     }
+    
+    func addInitialCategories(){
+        dataRepo.addInitialCategories()
+            .sink(receiveCompletion: { completion in
+                            if case .failure(let error) = completion {
+                                self.isLoading = false
+                                print("Failed to synchronize transactions: \(error)")
+                            }
+                        }, receiveValue: { _ in
+                            self.isLoading = false
+                            print("Transactions synchronized successfully")
+                            self.setupCategoryListener()
+                        })
+                        .store(in: &cancellables)
+    }
+    
 }

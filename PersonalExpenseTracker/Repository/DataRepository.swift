@@ -155,6 +155,43 @@ class DataRepository {
     
     
     
+    //    func synchronizeTransactionsFromFirestore() -> AnyPublisher<Void, Error> {
+    //        return firestoreManager.observeTransactionsFromFirestore(userId: userID!)
+    //            .flatMap { [weak self] firestoreTransactions -> AnyPublisher<Void, Error> in
+    //                guard let self = self else {
+    //                    return Fail(error: NSError(domain: "CoreDataManager", code: 500, userInfo: [NSLocalizedDescriptionKey: "Self is nil"]))
+    //                        .eraseToAnyPublisher()
+    //                }
+    //
+    //                return coreDataManager.fetchAllTransactionsCoreData()
+    //                    .tryMap { coreDataTransactions -> (new: [Transaction], toDelete: [Transaction]) in
+    //                        // Determine new and outdated transactions
+    //                        let firestoreTransactionIDs = Set(firestoreTransactions.map { $0.id })
+    //                        let coreDataTransactionIDs = Set(coreDataTransactions.map { $0.id })
+    //
+    //                        let newTransactionIDs = firestoreTransactionIDs.subtracting(coreDataTransactionIDs)
+    //                        let transactionsToDeleteIDs = coreDataTransactionIDs.subtracting(firestoreTransactionIDs)
+    //
+    //                        let newTransactions = firestoreTransactions.filter { newTransactionIDs.contains($0.id) }
+    //                        let transactionsToDelete = coreDataTransactions.filter { transactionsToDeleteIDs.contains($0.id) }
+    //
+    //                        return (new: newTransactions, toDelete: transactionsToDelete)
+    //                    }
+    //                    .flatMap { (newTransactions, toDeleteTransactions) -> AnyPublisher<Void, Error> in
+    //                        // Perform batch update: add new and delete old transactions
+    //                        let addPublisher = self.coreDataManager.saveTransactionsToCoreData(transactions: newTransactions)
+    //                        let deletePublisher = self.coreDataManager.deleteTransactionsFromCoreData(transactions: toDeleteTransactions)
+    //
+    //                        return Publishers.Merge(addPublisher, deletePublisher)
+    //                            .collect()
+    //                            .map { _ in () } // Combine the results into a single publisher
+    //                            .eraseToAnyPublisher()
+    //                    }
+    //                    .eraseToAnyPublisher()
+    //            }
+    //            .eraseToAnyPublisher()
+    //    }
+    
     func synchronizeTransactionsFromFirestore() -> AnyPublisher<Void, Error> {
         return firestoreManager.observeTransactionsFromFirestore(userId: userID!)
             .flatMap { [weak self] firestoreTransactions -> AnyPublisher<Void, Error> in
@@ -164,25 +201,36 @@ class DataRepository {
                 }
                 
                 return coreDataManager.fetchAllTransactionsCoreData()
-                    .tryMap { coreDataTransactions -> (new: [Transaction], toDelete: [Transaction]) in
-                        // Determine new and outdated transactions
+                    .tryMap { coreDataTransactions -> (new: [Transaction], toDelete: [Transaction], toUpdate: [Transaction]) in
+                        // Determine new, outdated, and updated transactions
                         let firestoreTransactionIDs = Set(firestoreTransactions.map { $0.id })
                         let coreDataTransactionIDs = Set(coreDataTransactions.map { $0.id })
                         
                         let newTransactionIDs = firestoreTransactionIDs.subtracting(coreDataTransactionIDs)
                         let transactionsToDeleteIDs = coreDataTransactionIDs.subtracting(firestoreTransactionIDs)
+                        let transactionsToUpdateIDs = firestoreTransactionIDs.intersection(coreDataTransactionIDs)
                         
                         let newTransactions = firestoreTransactions.filter { newTransactionIDs.contains($0.id) }
                         let transactionsToDelete = coreDataTransactions.filter { transactionsToDeleteIDs.contains($0.id) }
+                        let transactionsToUpdate = coreDataTransactions.filter { transactionsToUpdateIDs.contains($0.id) }
                         
-                        return (new: newTransactions, toDelete: transactionsToDelete)
+                        // Filter transactions to update
+                        let updatedTransactions = firestoreTransactions.filter { firestoreTransaction in
+                            if let coreDataTransaction = coreDataTransactions.first(where: { $0.id == firestoreTransaction.id }) {
+                                return firestoreTransaction != coreDataTransaction
+                            }
+                            return false
+                        }
+                        
+                        return (new: newTransactions, toDelete: transactionsToDelete, toUpdate: updatedTransactions)
                     }
-                    .flatMap { (newTransactions, toDeleteTransactions) -> AnyPublisher<Void, Error> in
-                        // Perform batch update: add new and delete old transactions
+                    .flatMap { (newTransactions, toDeleteTransactions, toUpdateTransactions) -> AnyPublisher<Void, Error> in
+                        // Perform batch update: add new, update existing, and delete old transactions
                         let addPublisher = self.coreDataManager.saveTransactionsToCoreData(transactions: newTransactions)
+                        let updatePublisher = self.coreDataManager.updateTransactionsToCoreData(transactions: toUpdateTransactions)
                         let deletePublisher = self.coreDataManager.deleteTransactionsFromCoreData(transactions: toDeleteTransactions)
                         
-                        return Publishers.Merge(addPublisher, deletePublisher)
+                        return Publishers.MergeMany(addPublisher, updatePublisher, deletePublisher)
                             .collect()
                             .map { _ in () } // Combine the results into a single publisher
                             .eraseToAnyPublisher()
@@ -191,7 +239,8 @@ class DataRepository {
             }
             .eraseToAnyPublisher()
     }
-
+    
+    
     
     
     func synchronizeCategoriesFromFirestore() -> AnyPublisher<Void, Error> {
@@ -230,7 +279,7 @@ class DataRepository {
             }
             .eraseToAnyPublisher()
     }
-
+    
     
     func checkTransactionIsEmpty()->Bool{
         return coreDataManager.isTransactionsEmpty()
@@ -241,17 +290,49 @@ class DataRepository {
     }
     
     func deleteTransaction(with id: UUID) -> AnyPublisher<Void, Error> {
-         coreDataManager.deleteTransactionCoreData(with: id)
-             .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
-                 guard let self = self else {
-                     return Fail(error: NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Self is nil"]))
-                         .eraseToAnyPublisher()
-                 }
-                 return firestoreManager.deleteTransactionFireStore(transactionId: id.uuidString, userId: userID!)
-             }
-             .eraseToAnyPublisher()
-     }
+        coreDataManager.deleteTransactionCoreData(with: id)
+            .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
+                guard let self = self else {
+                    return Fail(error: NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Self is nil"]))
+                        .eraseToAnyPublisher()
+                }
+                return firestoreManager.deleteTransactionFireStore(transactionId: id.uuidString, userId: userID!)
+            }
+            .eraseToAnyPublisher()
+    }
     
     
+
+
+    func updateTransaction(withId id: UUID, newTransaction transaction: Transaction) -> AnyPublisher<Void, Error> {
+        // Perform Core Data update
+        let coreDataUpdatePublisher = coreDataManager.updateTransactionCoreData(withId: id, newTransaction: transaction)
+        
+        // Perform Firestore update
+        let firestoreUpdatePublisher = firestoreManager.updateTransactionFireStore(transaction: transaction, userId: self.userID!)
+        
+        // Combine both publishers
+        return Publishers.Zip(coreDataUpdatePublisher, firestoreUpdatePublisher)
+            .map { _ in () } // Combine results into a single Void result
+            .eraseToAnyPublisher()
+    }
+
+    
+    
+    
+    
+    
+    func addInitialCategories()->AnyPublisher<Void, Error>{
+        let initialCategories = AppDataSource.shared.initialCategories
+        
+        return coreDataManager.saveCategoriesToCoreData(categories: initialCategories)
+            .flatMap { _ -> AnyPublisher<Void, Error> in
+                // If saving to Core Data succeeds, proceed to save to Firestore
+                return self.firestoreManager.saveCategoriesToFirestore(categories: initialCategories, userId: self.userID!)
+            }
+            .eraseToAnyPublisher()
+        
+        
+    }
     
 }

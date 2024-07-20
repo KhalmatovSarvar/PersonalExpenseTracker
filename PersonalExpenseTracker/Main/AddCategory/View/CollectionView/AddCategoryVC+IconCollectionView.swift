@@ -52,5 +52,18 @@ extension AddCategoryViewController:UICollectionViewDelegateFlowLayout{
             }
         }
     }
+    
+    private func calculateItemSize() -> CGSize {
+        let collectionViewWidth = iconCollectionView.bounds.width
+        let itemsPerRow: CGFloat = 4
+        let spacing: CGFloat = 10
+        
+        let totalSpacing = (itemsPerRow - 1) * spacing
+        let itemWidth = (collectionViewWidth - totalSpacing) / itemsPerRow
+        let itemHeight = itemWidth // Adjust if you want a different height
+        
+        return CGSize(width: itemWidth, height: itemHeight)
+    }
+
 }
 

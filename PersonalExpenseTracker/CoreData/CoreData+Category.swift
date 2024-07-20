@@ -111,15 +111,7 @@ extension CoreDataManager {
         .eraseToAnyPublisher()
     }
     
-    // Save Context Helper
-    private func saveContext(_ context: NSManagedObjectContext) {
-        do {
-            try context.save()
-            print("Changes saved to Core Data successfully")
-        } catch {
-            print("Failed to save changes to Core Data: \(error.localizedDescription)")
-        }
-    }
+  
     
     func deleteCategoriesFromCoreData(categories: [Category]) -> AnyPublisher<Void, Error> {
         let context = persistentContainer.viewContext
@@ -152,17 +144,11 @@ extension CoreDataManager {
     
     
     
-    func saveInitialCategoriesIfNeeded() {
-        if !UserDefaults.standard.bool(forKey: "initialCategoriesAdded") {
-            addInitialCategories()
-            UserDefaults.standard.set(true, forKey: "initialCategoriesAdded")
-        }
+
+//        if !UserDefaults.standard.bool(forKey: "initialCategoriesAdded") {
+//            addInitialCategories()
+//            UserDefaults.standard.set(true, forKey: "initialCategoriesAdded")
+        
     }
     
-    private func addInitialCategories() {
-        for category in initialCategories {
-            saveCategoryToCoreData(category: category)
-        }
-        saveContext(context) // Save after adding all categories
-    }
-}
+

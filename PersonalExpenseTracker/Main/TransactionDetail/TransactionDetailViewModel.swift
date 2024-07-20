@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class TransactionDetailViewModel {
-    private let coreDataManager = CoreDataManager.shared
+    private let dataRepo = DataRepository()
    
     
      let transaction: Transaction
@@ -19,7 +19,7 @@ class TransactionDetailViewModel {
      }
     
     func deleteTransaction() -> AnyPublisher<Void, Error> {
-        return coreDataManager.deleteTransactionCoreData(with: transaction.id)
+        return dataRepo.deleteTransaction(with: transaction.id)
        }
     
     

@@ -7,45 +7,45 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2AC692E6-E5DB-457B-AFD3-14E3CDF5DC9B"
+            uuid = "2ECFCF45-659D-4673-A729-9155607ADBC7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PersonalExpenseTracker/FireStore/FIreStoreManager.swift"
+            filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "deleteTransactionFireStore(transactionId:userId:)"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2AC692E6-E5DB-457B-AFD3-14E3CDF5DC9B - bc9f26447cb90bb7"
+                  uuid = "2ECFCF45-659D-4673-A729-9155607ADBC7 - 6df9a181ea6023cd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; () in PersonalExpenseTracker.FirestoreManager.deleteTransactionFireStore(transactionId: Swift.String, userId: Swift.String) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
+                  symbolName = "closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; (new: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toDelete: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toUpdate: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
                   moduleName = "PersonalExpenseTracker"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/FireStore/FIreStoreManager.swift"
+                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "179"
-                  endingLineNumber = "179">
+                  startingLineNumber = "225"
+                  endingLineNumber = "225">
                </Location>
                <Location
-                  uuid = "2AC692E6-E5DB-457B-AFD3-14E3CDF5DC9B - 29e853c7a56d9aa6"
+                  uuid = "2ECFCF45-659D-4673-A729-9155607ADBC7 - b5e5f88beb90d91b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 ((Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; () in PersonalExpenseTracker.FirestoreManager.deleteTransactionFireStore(transactionId: Swift.String, userId: Swift.String) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
+                  symbolName = "closure #2 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
                   moduleName = "PersonalExpenseTracker"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/FireStore/FIreStoreManager.swift"
+                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180">
+                  startingLineNumber = "229"
+                  endingLineNumber = "229">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -53,31 +53,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C19371A8-9AFA-4A7D-A1C7-A0166FF090B9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PersonalExpenseTracker/CoreData/CoreData+Transaction.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "deleteTransactionsFromCoreData(transactions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7E41AE7E-BAF2-47D7-B645-E08927711E10"
+            uuid = "B60170AB-BFD3-47A7-9199-68F5631D8F73"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
          </BreakpointContent>
@@ -85,107 +69,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A4C4D170-B7CC-4B8A-9FF2-D5FF610FE4E0"
+            uuid = "E9539941-63D1-45C1-9146-7EEB0C955B07"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A4C4D170-B7CC-4B8A-9FF2-D5FF610FE4E0 - cc70fb49952f3e57"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; (new: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toDelete: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
-                  moduleName = "PersonalExpenseTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "169"
-                  endingLineNumber = "169">
-               </Location>
-               <Location
-                  uuid = "A4C4D170-B7CC-4B8A-9FF2-D5FF610FE4E0 - ba9a1f5f0289d610"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (PersonalExpenseTracker.Transaction) -&gt; Foundation.UUID in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; (new: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toDelete: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
-                  moduleName = "PersonalExpenseTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "169"
-                  endingLineNumber = "169">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "05E13800-CF37-4793-BACA-83DC8C40F799"
+            uuid = "6C905C64-E1E4-4F75-B5A1-D831D1A624BE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "synchronizeTransactionsFromFirestore()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "05E13800-CF37-4793-BACA-83DC8C40F799 - cc70fb49952f3e36"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; (new: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toDelete: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
-                  moduleName = "PersonalExpenseTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170">
-               </Location>
-               <Location
-                  uuid = "05E13800-CF37-4793-BACA-83DC8C40F799 - 49b94092e312c70"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (PersonalExpenseTracker.Transaction) -&gt; Foundation.UUID in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; (new: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toDelete: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
-                  moduleName = "PersonalExpenseTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E746AD8E-C69D-4E49-AA7E-4DEDEE3A316E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
          </BreakpointContent>

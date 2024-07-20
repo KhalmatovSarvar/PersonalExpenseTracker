@@ -6,9 +6,9 @@ class ExpensesViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     
-    init(appDataSource:AppDataSource){
+    init(){
         super.init(nibName: nil, bundle: nil)
-        viewModel = ExpensesViewModel(appDataSource: appDataSource)
+        viewModel = ExpensesViewModel()
     }
     
     required init?(coder: NSCoder) {

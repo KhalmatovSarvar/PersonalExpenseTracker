@@ -77,6 +77,18 @@ extension AddTransactionViewController: UICollectionViewDataSource, UICollection
         cell.contentView.backgroundColor = .clear
     }
     
+    func updateCollectionViewHeight() {
+           let numberOfItems = viewModel.categories.count + 1
+           let itemsPerRow: CGFloat = 4
+           let itemWidth = (categoryCollectionView.frame.width - 4 * 8) / itemsPerRow
+           let itemHeight = itemWidth * 1.3
+           let numberOfRows = ceil(CGFloat(numberOfItems) / itemsPerRow)
+           let totalHeight = (numberOfRows * itemHeight) + ((numberOfRows - 1) * 8) + 8 * 2 // 8 for top and bottom insets
+           
+           // Update height constraint of collection view
+           categoryCollectionView.heightAnchor.constraint(equalToConstant: totalHeight).isActive = true
+       }
+    
     
     
 }

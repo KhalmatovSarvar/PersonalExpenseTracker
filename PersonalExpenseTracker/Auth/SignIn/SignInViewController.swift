@@ -21,6 +21,7 @@ class SignInViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
         textField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        textField.setPlaceHolderColor()
         textField.textColor = .appText
         textField.autocorrectionType = .no
         return textField
@@ -32,6 +33,7 @@ class SignInViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        textField.setPlaceHolderColor()
         textField.textColor = .appText
         textField.autocorrectionType = .no
         return textField
@@ -49,7 +51,7 @@ class SignInViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .systemBackground
         self.navigationItem.title = "Login"
         
         setupUI()
@@ -131,8 +133,15 @@ class SignInViewController: UIViewController {
                 if success {
                     //                    self?.showAlert(message: "Sign up successful", isError: false)
                     //go to main page
-                    print("login success")
-                    self?.navigationController?.pushViewController(HomeViewController(), animated: true)
+                    let homeViewController = HomeViewController()
+                       
+                       // Use a navigation controller to replace the current stack
+                       if let navigationController = self?.navigationController {
+                           navigationController.setViewControllers([homeViewController], animated: true)
+                       } else {
+                           // If there's no navigation controller, present HomeViewController modally
+                           self?.present(homeViewController, animated: true, completion: nil)
+                       }
                 }
             }
             .store(in: &cancellables)

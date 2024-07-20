@@ -8,40 +8,9 @@ class AddCategoryViewModel {
     var icon: String?
     var color: UIColor?
     
-    private let coreDataManager = CoreDataManager.shared
     private var cancellables = Set<AnyCancellable>()
     private var dataRepo = DataRepository()
-    private var cdPublisher: CDPublisher<CategoryDB>?
-    
-    
-    init(){
-        
-    }
-    
-    private func setupCategoryCDPublisher() {
-        let fetchRequest: NSFetchRequest<CategoryDB> = CategoryDB.fetchRequest()
-        
-        fetchRequest.predicate = nil
-          fetchRequest.sortDescriptors = []
-        
-        cdPublisher = CDPublisher(request: fetchRequest, context: coreDataManager.context)
-        
-        cdPublisher?.map { categories in
-            categories.compactMap { $0.toCategory() }
-        }
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: { completion in
-            // Handle completion if needed
-        }, receiveValue: { [weak self] convertedCategories in
-            self?.categories = convertedCategories
-            print("categories count->: \(self?.categories.count ?? 0)")
-            // Any additional operations needed for categories
-        })
-        .store(in: &cancellables)
-    }
 
-    
-    
     
     func addCategory() -> AnyPublisher<Void, Error> {
         guard let icon = icon,
@@ -53,5 +22,5 @@ class AddCategoryViewModel {
         
         let newCategory = Category(title: categoryName, color: color, icon: ImageWrapper(image: UIImage(systemName: icon)!))
         
-        return coreDataManager.saveCategoryToCoreData(category: newCategory)
+        return dataRepo.saveCategory(category: newCategory)
     }}

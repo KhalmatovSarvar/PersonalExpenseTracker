@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController {
         textField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         textField.textColor = .appText
         textField.autocorrectionType = .no
+        textField.setPlaceHolderColor()
         return textField
     }()
     
@@ -33,6 +34,7 @@ class SignUpViewController: UIViewController {
         textField.keyboardType = .emailAddress
         textField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         textField.textColor = .appText
+        textField.setPlaceHolderColor()
         textField.autocorrectionType = .no
         return textField
     }()
@@ -44,6 +46,7 @@ class SignUpViewController: UIViewController {
         textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         textField.textColor = .appText
+        textField.setPlaceHolderColor()
         textField.autocorrectionType = .no
         return textField
     }()
@@ -55,6 +58,7 @@ class SignUpViewController: UIViewController {
         textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         textField.textColor = .appText
+        textField.setPlaceHolderColor()
         textField.autocorrectionType = .no
         return textField
     }()
@@ -66,6 +70,7 @@ class SignUpViewController: UIViewController {
         textField.keyboardType = .numberPad
         textField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         textField.textColor = .appText
+        textField.setPlaceHolderColor()
         textField.autocorrectionType = .no
         return textField
     }()
@@ -82,7 +87,7 @@ class SignUpViewController: UIViewController {
     let signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.appText, for: .normal)
         return button
     }()
     
@@ -90,7 +95,7 @@ class SignUpViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .systemBackground
         self.navigationItem.title = "Sign Up"
         
         setupUI()
