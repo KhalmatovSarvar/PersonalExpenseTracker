@@ -1,0 +1,6 @@
+framework module Pods_PersonalExpenseTracker {
+  umbrella header "Pods-PersonalExpenseTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}
