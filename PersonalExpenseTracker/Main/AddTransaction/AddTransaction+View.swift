@@ -19,10 +19,7 @@ class AddTransactionViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         print("isFromExpenses: \(String(describing: isFromExpenses)) in init")
         viewModel = AddTransactionViewModel(isFromExpenses: isFromExpenses, transaction: transaction)
-        
-        
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -32,13 +29,8 @@ class AddTransactionViewController: UIViewController {
     let contentView = UIView()
     var categoryCollectionView: UICollectionView!
     let currencyButton = UIButton(primaryAction: nil)
-    
-    var screenWidth = 0.0;
-    
-    
-    
-    
-    
+    var screenWidth = 0.0
+
     let addButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -48,11 +40,7 @@ class AddTransactionViewController: UIViewController {
         button.layer.cornerRadius = 10
         return button
     }()
-    
-    
-    
-   
-    
+
     let todayButton = UIButton()
     let twoDaysAgoButton = UIButton()
     let yesterdayButton = UIButton()
@@ -109,9 +97,6 @@ class AddTransactionViewController: UIViewController {
         navigationItem.rightBarButtonItem = currencyRateButton
     }
     
-    
-    
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         categoryCollectionView.invalidateIntrinsicContentSize()
@@ -151,9 +136,7 @@ class AddTransactionViewController: UIViewController {
         if viewModel.isFromExpenses == nil {
             configureCalendarButton()
         }
-        
-        
-        
+           
         print("ViewModel categories count: \(viewModel.categories.count)")
         
         // Find the selected category in viewModel.categories
@@ -204,10 +187,7 @@ class AddTransactionViewController: UIViewController {
     
     
     private func setupViews() {
-        
-       
-        
-        amountTextField.delegate = self
+ amountTextField.delegate = self
         descriptionTextField.delegate = self
         
         setupScrollView()
@@ -231,8 +211,7 @@ class AddTransactionViewController: UIViewController {
         updateCollectionViewHeight()
     }
     
-    
-    
+
     @objc private func addButtonTapped() {
         viewModel.addTransaction().sink { completion in
             switch completion{
@@ -249,14 +228,20 @@ class AddTransactionViewController: UIViewController {
     }
     
     @objc private func navigateCurrencyRateVC() {
-        
         navigationController?.pushViewController(CurrencyScreenViewController(), animated: true)
     }
     
     @objc private func editButtonTapped() {
-        viewModel.updateTransaction()
-        navigationController?.backTwo()}
-    
+        viewModel.updateTransaction().sink { completion in
+            switch completion{
+            case .failure(let error):
+                print("Failed to save transaction: \(error.localizedDescription)")
+            case .finished:
+                self.navigationController?.backTwo()
+            }
+        } receiveValue: {}
+            .store(in: &cancellables)
+    }
     
     
     private func setupScrollView() {
@@ -310,7 +295,7 @@ class AddTransactionViewController: UIViewController {
             categoryCollectionView.topAnchor.constraint(equalTo: amountTextField.bottomAnchor, constant: 16),
             categoryCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             categoryCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            categoryCollectionView.heightAnchor.constraint(equalTo: contentView.widthAnchor),
+            categoryCollectionView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1.2),
             
             todayButton.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 8),
             todayButton.widthAnchor.constraint(equalToConstant: 80),

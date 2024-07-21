@@ -178,20 +178,25 @@ class SignInViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
-        
-        viewModel.$password
-            .sink { [weak self] password in
-                self?.passwordTextField.text = password
-            }
-            .store(in: &cancellables)
+    
     }
 }
 
 
 extension SignInViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
-        viewModel.email = textField.text ?? ""
-        viewModel.checkEmailInKeychain()
+        if textField == emailTextField{
+            viewModel.email = textField.text ?? ""
+            viewModel.checkEmailInKeychain()
+        }
+        
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == passwordTextField {
+            let password = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+            viewModel.password = password
+        }
+        return true
     }
 }
-

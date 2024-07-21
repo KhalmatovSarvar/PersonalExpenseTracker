@@ -11,8 +11,6 @@ class HomeViewModel {
     
     
     init() {
-//        if dataRepo.checkCategoryIsEmpty() { fetchCategoriesAndSave() }
-//        if dataRepo.checkTransactionIsEmpty() {fetchTransactionsAndSave()}
         if dataRepo.checkCategoryIsEmpty() {
                   fetchCategoriesAndSave()
               } else {

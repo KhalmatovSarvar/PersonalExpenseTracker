@@ -43,9 +43,7 @@ extension AddTransactionViewController{
 
         
         func setupDateButtonStyles() {
-            
-            
-            
+
             let today = Date()
             let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
             let twoDaysAgo = Calendar.current.date(byAdding: .day, value: -2, to: today)!

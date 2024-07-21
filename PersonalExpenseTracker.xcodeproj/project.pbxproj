@@ -10,15 +10,15 @@
 		0B16A568E2F6F42E87CF800A /* Pods_PersonalExpenseTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C9DC160779C062CB91FD50 /* Pods_PersonalExpenseTracker.framework */; };
 		FE070BF52C34002B001CBD96 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE070BF42C34002B001CBD96 /* Credentials.swift */; };
 		FE070BF72C340EDE001CBD96 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE070BF62C340EDE001CBD96 /* SignInViewModel.swift */; };
-		FE070BF92C340EFA001CBD96 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE070BF82C340EFA001CBD96 /* SignInViewController.swift */; };
+		FE070BF92C340EFA001CBD96 /* SignIn+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE070BF82C340EFA001CBD96 /* SignIn+View.swift */; };
 		FE070BFB2C343160001CBD96 /* MyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE070BFA2C343160001CBD96 /* MyUserDefaults.swift */; };
-		FE070BFE2C343B76001CBD96 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE070BFD2C343B76001CBD96 /* HomeViewController.swift */; };
+		FE070BFE2C343B76001CBD96 /* Home+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE070BFD2C343B76001CBD96 /* Home+View.swift */; };
 		FE1682952C36CB7E00E4B3E0 /* MyColours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1682942C36CB7E00E4B3E0 /* MyColours.xcassets */; };
 		FE1682992C36D7A900E4B3E0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1682982C36D7A900E4B3E0 /* Category.swift */; };
-		FE2656842C429AD50000430C /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2656832C429AD50000430C /* AddCategoryViewController.swift */; };
+		FE2656842C429AD50000430C /* AddCategory+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2656832C429AD50000430C /* AddCategory+View.swift */; };
 		FE2656862C429AE90000430C /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2656852C429AE90000430C /* AddCategoryViewModel.swift */; };
-		FE26568A2C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2656892C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift */; };
-		FE26568C2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26568B2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift */; };
+		FE26568A2C429EB60000430C /* AddCategory+ColorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2656892C429EB60000430C /* AddCategory+ColorCollectionView.swift */; };
+		FE26568C2C429EDD0000430C /* AddCategory+IconCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26568B2C429EDD0000430C /* AddCategory+IconCollectionView.swift */; };
 		FE2AA0512C4CE96100303D04 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0502C4CE96100303D04 /* NetworkService.swift */; };
 		FE2AA0532C4CEF0300303D04 /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0522C4CEF0300303D04 /* CurrencyRates.swift */; };
 		FE2AA0552C4CEF2700303D04 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0542C4CEF2700303D04 /* NetworkManager.swift */; };
@@ -28,36 +28,36 @@
 		FE3499292C491A0900E8A69F /* AppDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3499282C491A0900E8A69F /* AppDataSource.swift */; };
 		FE3F057A2C30423E005D1BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F05792C30423E005D1BD6 /* AppDelegate.swift */; };
 		FE3F057C2C30423E005D1BD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F057B2C30423E005D1BD6 /* SceneDelegate.swift */; };
-		FE3F057E2C30423E005D1BD6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F057D2C30423E005D1BD6 /* SignUpViewController.swift */; };
+		FE3F057E2C30423E005D1BD6 /* SignUp+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F057D2C30423E005D1BD6 /* SignUp+View.swift */; };
 		FE3F05842C30423E005D1BD6 /* PersonalExpenseTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE3F05822C30423E005D1BD6 /* PersonalExpenseTracker.xcdatamodeld */; };
 		FE3F05862C30423F005D1BD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE3F05852C30423F005D1BD6 /* Assets.xcassets */; };
 		FE3F05892C30423F005D1BD6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FE3F05882C30423F005D1BD6 /* Base */; };
 		FE3F05912C3045B7005D1BD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE3F05902C3045B7005D1BD6 /* GoogleService-Info.plist */; };
-		FE634AF32C3D0D57001A052B /* CategoryGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AF22C3D0D57001A052B /* CategoryGroupTableViewCell.swift */; };
+		FE634AF32C3D0D57001A052B /* CategoryGroup+TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AF22C3D0D57001A052B /* CategoryGroup+TableViewCell.swift */; };
 		FE634AF52C3D0DB1001A052B /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AF42C3D0DB1001A052B /* Transaction.swift */; };
-		FE634AF92C3D1BAE001A052B /* CategoryTransactionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AF82C3D1BAE001A052B /* CategoryTransactionHistoryViewController.swift */; };
-		FE634AFD2C3D3C22001A052B /* CategoryTransactionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AFC2C3D3C22001A052B /* CategoryTransactionViewCell.swift */; };
-		FE634B002C3D4D97001A052B /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AFF2C3D4D97001A052B /* TransactionDetailViewController.swift */; };
+		FE634AF92C3D1BAE001A052B /* CategoryTransactionHistory+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AF82C3D1BAE001A052B /* CategoryTransactionHistory+View.swift */; };
+		FE634AFD2C3D3C22001A052B /* CategoryTransactionView+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AFC2C3D3C22001A052B /* CategoryTransactionView+Cell.swift */; };
+		FE634B002C3D4D97001A052B /* TransactionDetail+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE634AFF2C3D4D97001A052B /* TransactionDetail+View.swift */; };
 		FE7D801C2C4165BC00CFD76D /* CategoryTransactionHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7D801B2C4165BC00CFD76D /* CategoryTransactionHistoryViewModel.swift */; };
-		FE93CA462C3521D400FA5108 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA452C3521D400FA5108 /* ExpensesViewController.swift */; };
-		FE93CA482C3521F100FA5108 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA472C3521F100FA5108 /* IncomeViewController.swift */; };
+		FE93CA462C3521D400FA5108 /* Expenses+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA452C3521D400FA5108 /* Expenses+View.swift */; };
+		FE93CA482C3521F100FA5108 /* Incomes+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA472C3521F100FA5108 /* Incomes+View.swift */; };
 		FE93CA4A2C35220500FA5108 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA492C35220500FA5108 /* ExpensesViewModel.swift */; };
 		FE93CA4C2C35221000FA5108 /* IncomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA4B2C35221000FA5108 /* IncomeViewModel.swift */; };
 		FE93CA512C35372700FA5108 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA502C35372700FA5108 /* HomeViewModel.swift */; };
-		FE93CA542C3563CF00FA5108 /* DoughnutChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA532C3563CF00FA5108 /* DoughnutChartCell.swift */; };
-		FE93CA562C35675000FA5108 /* CategoryGroupTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA552C35675000FA5108 /* CategoryGroupTableView.swift */; };
-		FE93CA592C357A5D00FA5108 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA582C357A5D00FA5108 /* AddTransactionViewController.swift */; };
+		FE93CA542C3563CF00FA5108 /* DoughnutChart+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA532C3563CF00FA5108 /* DoughnutChart+Cell.swift */; };
+		FE93CA562C35675000FA5108 /* CategoryGroup+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA552C35675000FA5108 /* CategoryGroup+TableView.swift */; };
+		FE93CA592C357A5D00FA5108 /* AddTransaction+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93CA582C357A5D00FA5108 /* AddTransaction+View.swift */; };
 		FE962C8C2C47A6E900A441CB /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE962C8B2C47A6E900A441CB /* DataRepository.swift */; };
 		FEAA0E9E2C31688E0071CCC1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAA0E9D2C31688E0071CCC1 /* SignUpViewModel.swift */; };
 		FEAA0EA32C316DFA0071CCC1 /* view_utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAA0EA22C316DFA0071CCC1 /* view_utils.swift */; };
 		FEAA0EA82C319AC30071CCC1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAA0EA72C319AC30071CCC1 /* AuthService.swift */; };
-		FECF38892C3BFCD9004F1998 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF38882C3BFCD9004F1998 /* CategoryCollectionViewCell.swift */; };
-		FECF388B2C3BFEAE004F1998 /* AddTransactionViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF388A2C3BFEAE004F1998 /* AddTransactionViewController+CollectionView.swift */; };
-		FECF388D2C3BFF48004F1998 /* AddTransactionViewController+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF388C2C3BFF48004F1998 /* AddTransactionViewController+DatePicker.swift */; };
-		FECF388F2C3C00D3004F1998 /* AddTransactionViewController+Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF388E2C3C00D3004F1998 /* AddTransactionViewController+Buttons.swift */; };
+		FECF38892C3BFCD9004F1998 /* Category+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF38882C3BFCD9004F1998 /* Category+Cell.swift */; };
+		FECF388B2C3BFEAE004F1998 /* AddTransaction+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF388A2C3BFEAE004F1998 /* AddTransaction+CollectionView.swift */; };
+		FECF388D2C3BFF48004F1998 /* AddTransaction+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF388C2C3BFF48004F1998 /* AddTransaction+DatePicker.swift */; };
+		FECF388F2C3C00D3004F1998 /* AddTransaction+Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF388E2C3C00D3004F1998 /* AddTransaction+Buttons.swift */; };
 		FECF38922C3C1E14004F1998 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF38912C3C1E14004F1998 /* AddTransactionViewModel.swift */; };
 		FECF38942C3C224A004F1998 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF38932C3C224A004F1998 /* UITextField+Extension.swift */; };
-		FECF38962C3C261A004F1998 /* AddTransitionViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF38952C3C261A004F1998 /* AddTransitionViewController+TextField.swift */; };
+		FECF38962C3C261A004F1998 /* AddTransition+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF38952C3C261A004F1998 /* AddTransition+TextField.swift */; };
 		FED057C62C47928500570946 /* CodableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED057C52C47928500570946 /* CodableColor.swift */; };
 		FED057C82C4795AD00570946 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED057C72C4795AD00570946 /* ImageWrapper.swift */; };
 		FED878822C3FB12D006668BC /* CoreData+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED878812C3FB12D006668BC /* CoreData+Publisher.swift */; };
@@ -66,8 +66,8 @@
 		FEEC657D2C4695E9004D9487 /* FIreStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEC657C2C4695E9004D9487 /* FIreStoreManager.swift */; };
 		FEF95D522C3E5790008E148E /* CoreData+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF95D512C3E5790008E148E /* CoreData+Transaction.swift */; };
 		FEF95D542C3EB662008E148E /* CategoryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF95D532C3EB662008E148E /* CategoryGroup.swift */; };
-		FEFB4BB32C44DD5F00FCEAFD /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB4BB22C44DD5F00FCEAFD /* IconCollectionViewCell.swift */; };
-		FEFB4BB52C44E10900FCEAFD /* ColorCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB4BB42C44E10900FCEAFD /* ColorCollectionCell.swift */; };
+		FEFB4BB32C44DD5F00FCEAFD /* IconCollection+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB4BB22C44DD5F00FCEAFD /* IconCollection+Cell.swift */; };
+		FEFB4BB52C44E10900FCEAFD /* ColorCollection+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB4BB42C44E10900FCEAFD /* ColorCollection+Cell.swift */; };
 		FEFB4BB72C452DBA00FCEAFD /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB4BB62C452DBA00FCEAFD /* TransactionDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,15 +77,15 @@
 		95AA3D19C9B537DB364CE542 /* Pods-PersonalExpenseTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalExpenseTracker.debug.xcconfig"; path = "Target Support Files/Pods-PersonalExpenseTracker/Pods-PersonalExpenseTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FE070BF42C34002B001CBD96 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		FE070BF62C340EDE001CBD96 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
-		FE070BF82C340EFA001CBD96 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		FE070BF82C340EFA001CBD96 /* SignIn+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignIn+View.swift"; sourceTree = "<group>"; };
 		FE070BFA2C343160001CBD96 /* MyUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUserDefaults.swift; sourceTree = "<group>"; };
-		FE070BFD2C343B76001CBD96 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FE070BFD2C343B76001CBD96 /* Home+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+View.swift"; sourceTree = "<group>"; };
 		FE1682942C36CB7E00E4B3E0 /* MyColours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MyColours.xcassets; sourceTree = "<group>"; };
 		FE1682982C36D7A900E4B3E0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		FE2656832C429AD50000430C /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		FE2656832C429AD50000430C /* AddCategory+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategory+View.swift"; sourceTree = "<group>"; };
 		FE2656852C429AE90000430C /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
-		FE2656892C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategoryVC+ColorCollectionView.swift"; sourceTree = "<group>"; };
-		FE26568B2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategoryVC+IconCollectionView.swift"; sourceTree = "<group>"; };
+		FE2656892C429EB60000430C /* AddCategory+ColorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategory+ColorCollectionView.swift"; sourceTree = "<group>"; };
+		FE26568B2C429EDD0000430C /* AddCategory+IconCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategory+IconCollectionView.swift"; sourceTree = "<group>"; };
 		FE2AA0502C4CE96100303D04 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FE2AA0522C4CEF0300303D04 /* CurrencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRates.swift; sourceTree = "<group>"; };
 		FE2AA0542C4CEF2700303D04 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -96,37 +96,37 @@
 		FE3F05762C30423E005D1BD6 /* PersonalExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE3F05792C30423E005D1BD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE3F057B2C30423E005D1BD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FE3F057D2C30423E005D1BD6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FE3F057D2C30423E005D1BD6 /* SignUp+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUp+View.swift"; sourceTree = "<group>"; };
 		FE3F05832C30423E005D1BD6 /* PersonalExpenseTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersonalExpenseTracker.xcdatamodel; sourceTree = "<group>"; };
 		FE3F05852C30423F005D1BD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE3F05882C30423F005D1BD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE3F058A2C30423F005D1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE3F05902C3045B7005D1BD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FE634AF22C3D0D57001A052B /* CategoryGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupTableViewCell.swift; sourceTree = "<group>"; };
+		FE634AF22C3D0D57001A052B /* CategoryGroup+TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryGroup+TableViewCell.swift"; sourceTree = "<group>"; };
 		FE634AF42C3D0DB1001A052B /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		FE634AF82C3D1BAE001A052B /* CategoryTransactionHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTransactionHistoryViewController.swift; sourceTree = "<group>"; };
-		FE634AFC2C3D3C22001A052B /* CategoryTransactionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTransactionViewCell.swift; sourceTree = "<group>"; };
-		FE634AFF2C3D4D97001A052B /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		FE634AF82C3D1BAE001A052B /* CategoryTransactionHistory+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryTransactionHistory+View.swift"; sourceTree = "<group>"; };
+		FE634AFC2C3D3C22001A052B /* CategoryTransactionView+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryTransactionView+Cell.swift"; sourceTree = "<group>"; };
+		FE634AFF2C3D4D97001A052B /* TransactionDetail+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionDetail+View.swift"; sourceTree = "<group>"; };
 		FE7D801B2C4165BC00CFD76D /* CategoryTransactionHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTransactionHistoryViewModel.swift; sourceTree = "<group>"; };
-		FE93CA452C3521D400FA5108 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
-		FE93CA472C3521F100FA5108 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
+		FE93CA452C3521D400FA5108 /* Expenses+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expenses+View.swift"; sourceTree = "<group>"; };
+		FE93CA472C3521F100FA5108 /* Incomes+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Incomes+View.swift"; sourceTree = "<group>"; };
 		FE93CA492C35220500FA5108 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 		FE93CA4B2C35221000FA5108 /* IncomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewModel.swift; sourceTree = "<group>"; };
 		FE93CA502C35372700FA5108 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		FE93CA532C3563CF00FA5108 /* DoughnutChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughnutChartCell.swift; sourceTree = "<group>"; };
-		FE93CA552C35675000FA5108 /* CategoryGroupTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupTableView.swift; sourceTree = "<group>"; };
-		FE93CA582C357A5D00FA5108 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		FE93CA532C3563CF00FA5108 /* DoughnutChart+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoughnutChart+Cell.swift"; sourceTree = "<group>"; };
+		FE93CA552C35675000FA5108 /* CategoryGroup+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryGroup+TableView.swift"; sourceTree = "<group>"; };
+		FE93CA582C357A5D00FA5108 /* AddTransaction+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransaction+View.swift"; sourceTree = "<group>"; };
 		FE962C8B2C47A6E900A441CB /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		FEAA0E9D2C31688E0071CCC1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		FEAA0EA22C316DFA0071CCC1 /* view_utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = view_utils.swift; sourceTree = "<group>"; };
 		FEAA0EA72C319AC30071CCC1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		FECF38882C3BFCD9004F1998 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		FECF388A2C3BFEAE004F1998 /* AddTransactionViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransactionViewController+CollectionView.swift"; sourceTree = "<group>"; };
-		FECF388C2C3BFF48004F1998 /* AddTransactionViewController+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransactionViewController+DatePicker.swift"; sourceTree = "<group>"; };
-		FECF388E2C3C00D3004F1998 /* AddTransactionViewController+Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransactionViewController+Buttons.swift"; sourceTree = "<group>"; };
+		FECF38882C3BFCD9004F1998 /* Category+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+Cell.swift"; sourceTree = "<group>"; };
+		FECF388A2C3BFEAE004F1998 /* AddTransaction+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransaction+CollectionView.swift"; sourceTree = "<group>"; };
+		FECF388C2C3BFF48004F1998 /* AddTransaction+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransaction+DatePicker.swift"; sourceTree = "<group>"; };
+		FECF388E2C3C00D3004F1998 /* AddTransaction+Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransaction+Buttons.swift"; sourceTree = "<group>"; };
 		FECF38912C3C1E14004F1998 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		FECF38932C3C224A004F1998 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
-		FECF38952C3C261A004F1998 /* AddTransitionViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransitionViewController+TextField.swift"; sourceTree = "<group>"; };
+		FECF38952C3C261A004F1998 /* AddTransition+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTransition+TextField.swift"; sourceTree = "<group>"; };
 		FED057C52C47928500570946 /* CodableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColor.swift; sourceTree = "<group>"; };
 		FED057C72C4795AD00570946 /* ImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWrapper.swift; sourceTree = "<group>"; };
 		FED878812C3FB12D006668BC /* CoreData+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Publisher.swift"; sourceTree = "<group>"; };
@@ -135,8 +135,8 @@
 		FEEC657C2C4695E9004D9487 /* FIreStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIreStoreManager.swift; sourceTree = "<group>"; };
 		FEF95D512C3E5790008E148E /* CoreData+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Transaction.swift"; sourceTree = "<group>"; };
 		FEF95D532C3EB662008E148E /* CategoryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroup.swift; sourceTree = "<group>"; };
-		FEFB4BB22C44DD5F00FCEAFD /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
-		FEFB4BB42C44E10900FCEAFD /* ColorCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionCell.swift; sourceTree = "<group>"; };
+		FEFB4BB22C44DD5F00FCEAFD /* IconCollection+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IconCollection+Cell.swift"; sourceTree = "<group>"; };
+		FEFB4BB42C44E10900FCEAFD /* ColorCollection+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorCollection+Cell.swift"; sourceTree = "<group>"; };
 		FEFB4BB62C452DBA00FCEAFD /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,12 +194,12 @@
 		FE070BFC2C343B5F001CBD96 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FE634AFB2C3D1BBE001A052B /* CategoryTransactionHistory */,
+				FE634AFE2C3D4D7C001A052B /* TransactionDetail */,
+				FE93CA4F2C35371300FA5108 /* Home */,
+				FE93CA572C357A4800FA5108 /* AddTransaction */,
 				FE2AA0562C4CF03300303D04 /* Currrency */,
 				FE2656822C429AB90000430C /* AddCategory */,
-				FE634AFE2C3D4D7C001A052B /* TransactionDetail */,
-				FE93CA572C357A4800FA5108 /* AddTransaction */,
-				FE93CA522C35637D00FA5108 /* TransactionsTableView */,
-				FE93CA4F2C35371300FA5108 /* Home */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				FE2656882C429E880000430C /* CollectionView */,
-				FE2656832C429AD50000430C /* AddCategoryViewController.swift */,
+				FE2656832C429AD50000430C /* AddCategory+View.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,10 +225,10 @@
 		FE2656882C429E880000430C /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				FE2656892C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift */,
-				FE26568B2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift */,
-				FEFB4BB22C44DD5F00FCEAFD /* IconCollectionViewCell.swift */,
-				FEFB4BB42C44E10900FCEAFD /* ColorCollectionCell.swift */,
+				FE2656892C429EB60000430C /* AddCategory+ColorCollectionView.swift */,
+				FE26568B2C429EDD0000430C /* AddCategory+IconCollectionView.swift */,
+				FEFB4BB22C44DD5F00FCEAFD /* IconCollection+Cell.swift */,
+				FEFB4BB42C44E10900FCEAFD /* ColorCollection+Cell.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -294,8 +294,8 @@
 		FE634AFB2C3D1BBE001A052B /* CategoryTransactionHistory */ = {
 			isa = PBXGroup;
 			children = (
-				FE634AF82C3D1BAE001A052B /* CategoryTransactionHistoryViewController.swift */,
-				FE634AFC2C3D3C22001A052B /* CategoryTransactionViewCell.swift */,
+				FE634AF82C3D1BAE001A052B /* CategoryTransactionHistory+View.swift */,
+				FE634AFC2C3D3C22001A052B /* CategoryTransactionView+Cell.swift */,
 				FE7D801B2C4165BC00CFD76D /* CategoryTransactionHistoryViewModel.swift */,
 			);
 			path = CategoryTransactionHistory;
@@ -304,7 +304,7 @@
 		FE634AFE2C3D4D7C001A052B /* TransactionDetail */ = {
 			isa = PBXGroup;
 			children = (
-				FE634AFF2C3D4D97001A052B /* TransactionDetailViewController.swift */,
+				FE634AFF2C3D4D97001A052B /* TransactionDetail+View.swift */,
 				FEFB4BB62C452DBA00FCEAFD /* TransactionDetailViewModel.swift */,
 			);
 			path = TransactionDetail;
@@ -324,7 +324,7 @@
 		FE93CA432C3521B800FA5108 /* Income */ = {
 			isa = PBXGroup;
 			children = (
-				FE93CA472C3521F100FA5108 /* IncomeViewController.swift */,
+				FE93CA472C3521F100FA5108 /* Incomes+View.swift */,
 				FE93CA4B2C35221000FA5108 /* IncomeViewModel.swift */,
 			);
 			path = Income;
@@ -333,7 +333,7 @@
 		FE93CA442C3521C200FA5108 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
-				FE93CA452C3521D400FA5108 /* ExpensesViewController.swift */,
+				FE93CA452C3521D400FA5108 /* Expenses+View.swift */,
 				FE93CA492C35220500FA5108 /* ExpensesViewModel.swift */,
 			);
 			path = Expenses;
@@ -342,10 +342,10 @@
 		FE93CA4F2C35371300FA5108 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				FE634AFB2C3D1BBE001A052B /* CategoryTransactionHistory */,
+				FE93CA522C35637D00FA5108 /* TransactionsTableView */,
 				FE93CA432C3521B800FA5108 /* Income */,
 				FE93CA442C3521C200FA5108 /* Expenses */,
-				FE070BFD2C343B76001CBD96 /* HomeViewController.swift */,
+				FE070BFD2C343B76001CBD96 /* Home+View.swift */,
 				FE93CA502C35372700FA5108 /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -354,9 +354,9 @@
 		FE93CA522C35637D00FA5108 /* TransactionsTableView */ = {
 			isa = PBXGroup;
 			children = (
-				FE93CA532C3563CF00FA5108 /* DoughnutChartCell.swift */,
-				FE93CA552C35675000FA5108 /* CategoryGroupTableView.swift */,
-				FE634AF22C3D0D57001A052B /* CategoryGroupTableViewCell.swift */,
+				FE93CA532C3563CF00FA5108 /* DoughnutChart+Cell.swift */,
+				FE93CA552C35675000FA5108 /* CategoryGroup+TableView.swift */,
+				FE634AF22C3D0D57001A052B /* CategoryGroup+TableViewCell.swift */,
 			);
 			path = TransactionsTableView;
 			sourceTree = "<group>";
@@ -365,11 +365,11 @@
 			isa = PBXGroup;
 			children = (
 				FECF38902C3C1DDC004F1998 /* AddTransitionCollectionView */,
-				FE93CA582C357A5D00FA5108 /* AddTransactionViewController.swift */,
-				FECF388C2C3BFF48004F1998 /* AddTransactionViewController+DatePicker.swift */,
-				FECF388E2C3C00D3004F1998 /* AddTransactionViewController+Buttons.swift */,
+				FE93CA582C357A5D00FA5108 /* AddTransaction+View.swift */,
+				FECF388C2C3BFF48004F1998 /* AddTransaction+DatePicker.swift */,
+				FECF388E2C3C00D3004F1998 /* AddTransaction+Buttons.swift */,
 				FECF38912C3C1E14004F1998 /* AddTransactionViewModel.swift */,
-				FECF38952C3C261A004F1998 /* AddTransitionViewController+TextField.swift */,
+				FECF38952C3C261A004F1998 /* AddTransition+TextField.swift */,
 			);
 			path = AddTransaction;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 		FEAA0E9B2C3168610071CCC1 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				FE3F057D2C30423E005D1BD6 /* SignUpViewController.swift */,
+				FE3F057D2C30423E005D1BD6 /* SignUp+View.swift */,
 				FEAA0E9D2C31688E0071CCC1 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
@@ -396,7 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				FE070BF62C340EDE001CBD96 /* SignInViewModel.swift */,
-				FE070BF82C340EFA001CBD96 /* SignInViewController.swift */,
+				FE070BF82C340EFA001CBD96 /* SignIn+View.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -426,8 +426,8 @@
 		FECF38902C3C1DDC004F1998 /* AddTransitionCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				FECF38882C3BFCD9004F1998 /* CategoryCollectionViewCell.swift */,
-				FECF388A2C3BFEAE004F1998 /* AddTransactionViewController+CollectionView.swift */,
+				FECF38882C3BFCD9004F1998 /* Category+Cell.swift */,
+				FECF388A2C3BFEAE004F1998 /* AddTransaction+CollectionView.swift */,
 			);
 			path = AddTransitionCollectionView;
 			sourceTree = "<group>";
@@ -558,13 +558,13 @@
 			files = (
 				FE2AA0552C4CEF2700303D04 /* NetworkManager.swift in Sources */,
 				FECF38942C3C224A004F1998 /* UITextField+Extension.swift in Sources */,
-				FE3F057E2C30423E005D1BD6 /* SignUpViewController.swift in Sources */,
+				FE3F057E2C30423E005D1BD6 /* SignUp+View.swift in Sources */,
 				FE2AA05C2C4D1C8B00303D04 /* CurrencyCell.swift in Sources */,
 				FEFB4BB72C452DBA00FCEAFD /* TransactionDetailViewModel.swift in Sources */,
 				FE2656862C429AE90000430C /* AddCategoryViewModel.swift in Sources */,
-				FE634AF92C3D1BAE001A052B /* CategoryTransactionHistoryViewController.swift in Sources */,
+				FE634AF92C3D1BAE001A052B /* CategoryTransactionHistory+View.swift in Sources */,
 				FE93CA512C35372700FA5108 /* HomeViewModel.swift in Sources */,
-				FE93CA542C3563CF00FA5108 /* DoughnutChartCell.swift in Sources */,
+				FE93CA542C3563CF00FA5108 /* DoughnutChart+Cell.swift in Sources */,
 				FEEC657D2C4695E9004D9487 /* FIreStoreManager.swift in Sources */,
 				FE3F057A2C30423E005D1BD6 /* AppDelegate.swift in Sources */,
 				FE070BF52C34002B001CBD96 /* Credentials.swift in Sources */,
@@ -572,47 +572,47 @@
 				FE070BFB2C343160001CBD96 /* MyUserDefaults.swift in Sources */,
 				FE3F057C2C30423E005D1BD6 /* SceneDelegate.swift in Sources */,
 				FE7D801C2C4165BC00CFD76D /* CategoryTransactionHistoryViewModel.swift in Sources */,
-				FE93CA592C357A5D00FA5108 /* AddTransactionViewController.swift in Sources */,
-				FECF388B2C3BFEAE004F1998 /* AddTransactionViewController+CollectionView.swift in Sources */,
+				FE93CA592C357A5D00FA5108 /* AddTransaction+View.swift in Sources */,
+				FECF388B2C3BFEAE004F1998 /* AddTransaction+CollectionView.swift in Sources */,
 				FE2AA05A2C4CF07600303D04 /* CurrencyViewModel.swift in Sources */,
-				FE634AFD2C3D3C22001A052B /* CategoryTransactionViewCell.swift in Sources */,
-				FECF38892C3BFCD9004F1998 /* CategoryCollectionViewCell.swift in Sources */,
+				FE634AFD2C3D3C22001A052B /* CategoryTransactionView+Cell.swift in Sources */,
+				FECF38892C3BFCD9004F1998 /* Category+Cell.swift in Sources */,
 				FE3499292C491A0900E8A69F /* AppDataSource.swift in Sources */,
 				FE93CA4A2C35220500FA5108 /* ExpensesViewModel.swift in Sources */,
-				FE2656842C429AD50000430C /* AddCategoryViewController.swift in Sources */,
-				FE634B002C3D4D97001A052B /* TransactionDetailViewController.swift in Sources */,
+				FE2656842C429AD50000430C /* AddCategory+View.swift in Sources */,
+				FE634B002C3D4D97001A052B /* TransactionDetail+View.swift in Sources */,
 				FEAA0E9E2C31688E0071CCC1 /* SignUpViewModel.swift in Sources */,
-				FECF38962C3C261A004F1998 /* AddTransitionViewController+TextField.swift in Sources */,
+				FECF38962C3C261A004F1998 /* AddTransition+TextField.swift in Sources */,
 				FE634AF52C3D0DB1001A052B /* Transaction.swift in Sources */,
 				FEF95D542C3EB662008E148E /* CategoryGroup.swift in Sources */,
-				FEFB4BB52C44E10900FCEAFD /* ColorCollectionCell.swift in Sources */,
+				FEFB4BB52C44E10900FCEAFD /* ColorCollection+Cell.swift in Sources */,
 				FE93CA4C2C35221000FA5108 /* IncomeViewModel.swift in Sources */,
-				FECF388D2C3BFF48004F1998 /* AddTransactionViewController+DatePicker.swift in Sources */,
+				FECF388D2C3BFF48004F1998 /* AddTransaction+DatePicker.swift in Sources */,
 				FE070BF72C340EDE001CBD96 /* SignInViewModel.swift in Sources */,
-				FE93CA462C3521D400FA5108 /* ExpensesViewController.swift in Sources */,
+				FE93CA462C3521D400FA5108 /* Expenses+View.swift in Sources */,
 				FEDE2D682C3D71630086E150 /* CoreData+Category.swift in Sources */,
 				FE962C8C2C47A6E900A441CB /* DataRepository.swift in Sources */,
-				FE93CA562C35675000FA5108 /* CategoryGroupTableView.swift in Sources */,
+				FE93CA562C35675000FA5108 /* CategoryGroup+TableView.swift in Sources */,
 				FECF38922C3C1E14004F1998 /* AddTransactionViewModel.swift in Sources */,
 				FEAA0EA32C316DFA0071CCC1 /* view_utils.swift in Sources */,
 				FE3F05842C30423E005D1BD6 /* PersonalExpenseTracker.xcdatamodeld in Sources */,
 				FE2AA0582C4CF05400303D04 /* Currency+View.swift in Sources */,
-				FE070BF92C340EFA001CBD96 /* SignInViewController.swift in Sources */,
-				FE93CA482C3521F100FA5108 /* IncomeViewController.swift in Sources */,
-				FE634AF32C3D0D57001A052B /* CategoryGroupTableViewCell.swift in Sources */,
+				FE070BF92C340EFA001CBD96 /* SignIn+View.swift in Sources */,
+				FE93CA482C3521F100FA5108 /* Incomes+View.swift in Sources */,
+				FE634AF32C3D0D57001A052B /* CategoryGroup+TableViewCell.swift in Sources */,
 				FE2AA0532C4CEF0300303D04 /* CurrencyRates.swift in Sources */,
 				FED057C82C4795AD00570946 /* ImageWrapper.swift in Sources */,
 				FED057C62C47928500570946 /* CodableColor.swift in Sources */,
 				FEAA0EA82C319AC30071CCC1 /* AuthService.swift in Sources */,
-				FE070BFE2C343B76001CBD96 /* HomeViewController.swift in Sources */,
-				FE26568A2C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift in Sources */,
-				FE26568C2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift in Sources */,
+				FE070BFE2C343B76001CBD96 /* Home+View.swift in Sources */,
+				FE26568A2C429EB60000430C /* AddCategory+ColorCollectionView.swift in Sources */,
+				FE26568C2C429EDD0000430C /* AddCategory+IconCollectionView.swift in Sources */,
 				FE1682992C36D7A900E4B3E0 /* Category.swift in Sources */,
 				FEDE2D642C3D6F830086E150 /* CoreDataManager.swift in Sources */,
 				FED878822C3FB12D006668BC /* CoreData+Publisher.swift in Sources */,
-				FECF388F2C3C00D3004F1998 /* AddTransactionViewController+Buttons.swift in Sources */,
+				FECF388F2C3C00D3004F1998 /* AddTransaction+Buttons.swift in Sources */,
 				FE2AA0512C4CE96100303D04 /* NetworkService.swift in Sources */,
-				FEFB4BB32C44DD5F00FCEAFD /* IconCollectionViewCell.swift in Sources */,
+				FEFB4BB32C44DD5F00FCEAFD /* IconCollection+Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

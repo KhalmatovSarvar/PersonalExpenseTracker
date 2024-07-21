@@ -89,7 +89,6 @@ class SignInViewModel {
     private func saveInfo(){
         MyUserDefaults.shared.isUserSignedIn = true
         MyUserDefaults.shared.userEmail = email
-        
     }
     
     func checkEmailInKeychain() {

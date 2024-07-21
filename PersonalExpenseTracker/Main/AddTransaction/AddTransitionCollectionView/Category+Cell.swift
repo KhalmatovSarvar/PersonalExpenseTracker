@@ -45,10 +45,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(backgroundCircleView)
         backgroundCircleView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)
-        
-        
-        
-        
+
         setupConstraints()
     }
     
