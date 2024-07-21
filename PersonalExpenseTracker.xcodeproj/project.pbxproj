@@ -19,6 +19,12 @@
 		FE2656862C429AE90000430C /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2656852C429AE90000430C /* AddCategoryViewModel.swift */; };
 		FE26568A2C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2656892C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift */; };
 		FE26568C2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26568B2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift */; };
+		FE2AA0512C4CE96100303D04 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0502C4CE96100303D04 /* NetworkService.swift */; };
+		FE2AA0532C4CEF0300303D04 /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0522C4CEF0300303D04 /* CurrencyRates.swift */; };
+		FE2AA0552C4CEF2700303D04 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0542C4CEF2700303D04 /* NetworkManager.swift */; };
+		FE2AA0582C4CF05400303D04 /* Currency+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0572C4CF05400303D04 /* Currency+View.swift */; };
+		FE2AA05A2C4CF07600303D04 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA0592C4CF07600303D04 /* CurrencyViewModel.swift */; };
+		FE2AA05C2C4D1C8B00303D04 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2AA05B2C4D1C8B00303D04 /* CurrencyCell.swift */; };
 		FE3499292C491A0900E8A69F /* AppDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3499282C491A0900E8A69F /* AppDataSource.swift */; };
 		FE3F057A2C30423E005D1BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F05792C30423E005D1BD6 /* AppDelegate.swift */; };
 		FE3F057C2C30423E005D1BD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F057B2C30423E005D1BD6 /* SceneDelegate.swift */; };
@@ -80,6 +86,12 @@
 		FE2656852C429AE90000430C /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		FE2656892C429EB60000430C /* AddCategoryVC+ColorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategoryVC+ColorCollectionView.swift"; sourceTree = "<group>"; };
 		FE26568B2C429EDD0000430C /* AddCategoryVC+IconCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCategoryVC+IconCollectionView.swift"; sourceTree = "<group>"; };
+		FE2AA0502C4CE96100303D04 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FE2AA0522C4CEF0300303D04 /* CurrencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRates.swift; sourceTree = "<group>"; };
+		FE2AA0542C4CEF2700303D04 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FE2AA0572C4CF05400303D04 /* Currency+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+View.swift"; sourceTree = "<group>"; };
+		FE2AA0592C4CF07600303D04 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		FE2AA05B2C4D1C8B00303D04 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		FE3499282C491A0900E8A69F /* AppDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataSource.swift; sourceTree = "<group>"; };
 		FE3F05762C30423E005D1BD6 /* PersonalExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE3F05792C30423E005D1BD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +186,7 @@
 				FE1682982C36D7A900E4B3E0 /* Category.swift */,
 				FE634AF42C3D0DB1001A052B /* Transaction.swift */,
 				FEF95D532C3EB662008E148E /* CategoryGroup.swift */,
+				FE2AA0522C4CEF0300303D04 /* CurrencyRates.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -181,6 +194,7 @@
 		FE070BFC2C343B5F001CBD96 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FE2AA0562C4CF03300303D04 /* Currrency */,
 				FE2656822C429AB90000430C /* AddCategory */,
 				FE634AFE2C3D4D7C001A052B /* TransactionDetail */,
 				FE93CA572C357A4800FA5108 /* AddTransaction */,
@@ -219,6 +233,25 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		FE2AA04F2C4CE94200303D04 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FE2AA0502C4CE96100303D04 /* NetworkService.swift */,
+				FE2AA0542C4CEF2700303D04 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FE2AA0562C4CF03300303D04 /* Currrency */ = {
+			isa = PBXGroup;
+			children = (
+				FE2AA0572C4CF05400303D04 /* Currency+View.swift */,
+				FE2AA0592C4CF07600303D04 /* CurrencyViewModel.swift */,
+				FE2AA05B2C4D1C8B00303D04 /* CurrencyCell.swift */,
+			);
+			path = Currrency;
+			sourceTree = "<group>";
+		};
 		FE3F056D2C30423E005D1BD6 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +273,7 @@
 		FE3F05782C30423E005D1BD6 /* PersonalExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				FE2AA04F2C4CE94200303D04 /* Network */,
 				FE962C8A2C47A6D300A441CB /* Repository */,
 				FEEC657B2C4695D9004D9487 /* FireStore */,
 				FE634B012C3D6C4C001A052B /* CoreData */,
@@ -522,8 +556,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2AA0552C4CEF2700303D04 /* NetworkManager.swift in Sources */,
 				FECF38942C3C224A004F1998 /* UITextField+Extension.swift in Sources */,
 				FE3F057E2C30423E005D1BD6 /* SignUpViewController.swift in Sources */,
+				FE2AA05C2C4D1C8B00303D04 /* CurrencyCell.swift in Sources */,
 				FEFB4BB72C452DBA00FCEAFD /* TransactionDetailViewModel.swift in Sources */,
 				FE2656862C429AE90000430C /* AddCategoryViewModel.swift in Sources */,
 				FE634AF92C3D1BAE001A052B /* CategoryTransactionHistoryViewController.swift in Sources */,
@@ -538,6 +574,7 @@
 				FE7D801C2C4165BC00CFD76D /* CategoryTransactionHistoryViewModel.swift in Sources */,
 				FE93CA592C357A5D00FA5108 /* AddTransactionViewController.swift in Sources */,
 				FECF388B2C3BFEAE004F1998 /* AddTransactionViewController+CollectionView.swift in Sources */,
+				FE2AA05A2C4CF07600303D04 /* CurrencyViewModel.swift in Sources */,
 				FE634AFD2C3D3C22001A052B /* CategoryTransactionViewCell.swift in Sources */,
 				FECF38892C3BFCD9004F1998 /* CategoryCollectionViewCell.swift in Sources */,
 				FE3499292C491A0900E8A69F /* AppDataSource.swift in Sources */,
@@ -559,9 +596,11 @@
 				FECF38922C3C1E14004F1998 /* AddTransactionViewModel.swift in Sources */,
 				FEAA0EA32C316DFA0071CCC1 /* view_utils.swift in Sources */,
 				FE3F05842C30423E005D1BD6 /* PersonalExpenseTracker.xcdatamodeld in Sources */,
+				FE2AA0582C4CF05400303D04 /* Currency+View.swift in Sources */,
 				FE070BF92C340EFA001CBD96 /* SignInViewController.swift in Sources */,
 				FE93CA482C3521F100FA5108 /* IncomeViewController.swift in Sources */,
 				FE634AF32C3D0D57001A052B /* CategoryGroupTableViewCell.swift in Sources */,
+				FE2AA0532C4CEF0300303D04 /* CurrencyRates.swift in Sources */,
 				FED057C82C4795AD00570946 /* ImageWrapper.swift in Sources */,
 				FED057C62C47928500570946 /* CodableColor.swift in Sources */,
 				FEAA0EA82C319AC30071CCC1 /* AuthService.swift in Sources */,
@@ -572,6 +611,7 @@
 				FEDE2D642C3D6F830086E150 /* CoreDataManager.swift in Sources */,
 				FED878822C3FB12D006668BC /* CoreData+Publisher.swift in Sources */,
 				FECF388F2C3C00D3004F1998 /* AddTransactionViewController+Buttons.swift in Sources */,
+				FE2AA0512C4CE96100303D04 /* NetworkService.swift in Sources */,
 				FEFB4BB32C44DD5F00FCEAFD /* IconCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

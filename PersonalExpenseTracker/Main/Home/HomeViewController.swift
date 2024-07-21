@@ -63,7 +63,9 @@ class HomeViewController: UITabBarController {
     
     private func setUpNavigationBar() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTransaction))
+        let logOutButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(logOutUser))
         navigationItem.rightBarButtonItem = addButton
+        navigationItem.leftBarButtonItem = logOutButton
     }
     
     @objc private func addTransaction() {
@@ -73,5 +75,49 @@ class HomeViewController: UITabBarController {
             transaction: nil
         )
         self.navigationController?.pushViewController(addTransactionVC, animated: false)
+    }
+    
+    @objc private func logOutUser() {
+        
+              
+        viewModel.logOut()
+            .sink(receiveCompletion: { completion in
+                           switch completion {
+                           case .finished:
+                               // Handle successful logout
+                               self.handleSuccessfulLogout()
+                           case .failure(let error):
+                               // Handle logout error
+                               self.handleLogoutError(error)
+                           }
+                       }, receiveValue: {
+                           // No value expected, just completion
+                       })
+                       .store(in: &cancellables)
+        
+        
+        
+             
+    }
+    
+    private func handleSuccessfulLogout() {
+        let signInViewController = SignInViewController()
+         if let navigationController = self.navigationController {
+             navigationController.setViewControllers([signInViewController], animated: true)
+         } else {
+             // If the view controller is not embedded in a navigation controller
+             // Present the sign-in view controller modally
+             let navigationController = UINavigationController(rootViewController: signInViewController)
+             self.present(navigationController, animated: true, completion: nil)
+         }
+        }
+        
+    private func handleLogoutError(_ error: Error) {
+        // Implement your logic for logout error, e.g., showing an error message
+        print("Failed to log out: \(error.localizedDescription)")
+        // Optionally, show an alert to the user
+        let alert = UIAlertController(title: "Error", message: "Failed to log out: \(error.localizedDescription)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }

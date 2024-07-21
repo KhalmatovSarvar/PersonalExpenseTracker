@@ -278,6 +278,18 @@ class DataRepository {
             .map { _ in () } // Combine results into a single Void result
             .eraseToAnyPublisher()
     }
+    
+    
+    func clearUserData()->AnyPublisher<Void,Error>{
+        let defaults = MyUserDefaults.shared
+        defaults.isUserSignedIn = false
+        defaults.isUserSignedUp = false
+        defaults.userEmail = ""
+        defaults.userID = nil
+        defaults.userName = ""
+        
+        return coreDataManager.clearAllData()
+    }
 
     
     
@@ -293,7 +305,6 @@ class DataRepository {
                 return self.firestoreManager.saveCategoriesToFirestore(categories: initialCategories, userId: self.userID!)
             }
             .eraseToAnyPublisher()
-        
         
     }
     

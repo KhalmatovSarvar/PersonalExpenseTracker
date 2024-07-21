@@ -48,6 +48,11 @@ class AddTransactionViewController: UIViewController {
         button.layer.cornerRadius = 10
         return button
     }()
+    
+    
+    
+   
+    
     let todayButton = UIButton()
     let twoDaysAgoButton = UIButton()
     let yesterdayButton = UIButton()
@@ -100,7 +105,8 @@ class AddTransactionViewController: UIViewController {
         
         setupViews()
         setUpBindings()
-        
+        let currencyRateButton = UIBarButtonItem( image: UIImage(systemName: "dollarsign.arrow.circlepath"), style: .plain, target: self, action: #selector(navigateCurrencyRateVC))
+        navigationItem.rightBarButtonItem = currencyRateButton
     }
     
     
@@ -199,6 +205,8 @@ class AddTransactionViewController: UIViewController {
     
     private func setupViews() {
         
+       
+        
         amountTextField.delegate = self
         descriptionTextField.delegate = self
         
@@ -222,7 +230,7 @@ class AddTransactionViewController: UIViewController {
         setUpDatePicker()
         updateCollectionViewHeight()
     }
-
+    
     
     
     @objc private func addButtonTapped() {
@@ -238,6 +246,11 @@ class AddTransactionViewController: UIViewController {
             .store(in: &cancellables)
         
         
+    }
+    
+    @objc private func navigateCurrencyRateVC() {
+        
+        navigationController?.pushViewController(CurrencyScreenViewController(), animated: true)
     }
     
     @objc private func editButtonTapped() {

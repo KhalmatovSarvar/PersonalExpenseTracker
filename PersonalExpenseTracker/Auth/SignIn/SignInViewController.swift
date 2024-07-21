@@ -48,6 +48,13 @@ class SignInViewController: UIViewController {
         return button
     }()
     
+    let signUpButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign Up", for: .normal)
+        button.setTitleColor(.appText, for: .normal)
+        return button
+    }()
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,21 +70,25 @@ class SignInViewController: UIViewController {
         passwordTextField.delegate = self
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(goSignUp), for: .touchUpInside)
     }
     
     // MARK: - UI Setup
     private func setupUI() {
+        navigationItem.hidesBackButton = true
         // Add subviews
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
         view.addSubview(activityIndicator)
+        view.addSubview(signUpButton)
         
         // Disable autoresizing mask constraints
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
         // Setup constraints
         NSLayoutConstraint.activate([
@@ -89,10 +100,13 @@ class SignInViewController: UIViewController {
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
+            loginButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 15),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            signUpButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
+            signUpButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor, constant: -8),
             
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
@@ -107,6 +121,16 @@ class SignInViewController: UIViewController {
             showAlert(message: viewModel.isValid().errorMessage)
         }
     }
+    
+    @objc private func goSignUp() {
+        if navigationController?.viewControllers.count ?? 0 > 1 {
+                // Pop to the root view controller or one step back in the stack
+                navigationController?.popToRootViewController(animated: true)
+            } else {
+                // If no view controllers to pop, push to the sign-up view controller
+                let signUpVC = SignUpViewController() // Replace with your actual sign-up view controller initialization
+                navigationController?.setViewControllers([signUpVC], animated: true)
+            }    }
     
     private func addTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

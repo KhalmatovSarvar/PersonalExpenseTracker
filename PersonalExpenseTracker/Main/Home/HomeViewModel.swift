@@ -109,4 +109,8 @@ class HomeViewModel {
                         .store(in: &cancellables)
     }
     
+    func logOut()->AnyPublisher<Void,Error>{
+        dataRepo.clearUserData()
+    }
+    
 }

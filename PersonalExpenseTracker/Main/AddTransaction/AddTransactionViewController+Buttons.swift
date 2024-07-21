@@ -39,6 +39,7 @@ extension AddTransactionViewController{
         currencyButton.showsMenuAsPrimaryAction = true
         currencyButton.changesSelectionAsPrimaryAction = true
     }
+   
 
         
         func setupDateButtonStyles() {

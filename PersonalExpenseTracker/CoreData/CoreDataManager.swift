@@ -86,6 +86,42 @@ class CoreDataManager {
            }
        }
     
+    
+    // Clear all data from Core Data and return a Publisher
+       func clearAllData() -> AnyPublisher<Void, Error> {
+           let entities = ["CategoryDB", "TransactionDB"] // Replace with your actual entity names
+           
+           let publishers: [AnyPublisher<Void, Error>] = entities.map { entityName in
+               let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+               let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+               
+               return Future { promise in
+                   do {
+                       try self.context.execute(batchDeleteRequest)
+                       promise(.success(()))
+                   } catch {
+                       promise(.failure(error))
+                   }
+               }
+               .eraseToAnyPublisher()
+           }
+           
+           return Publishers.MergeMany(publishers)
+               .collect()
+               .flatMap { _ in
+                   Future { promise in
+                       do {
+                           try self.context.save()
+                           promise(.success(()))
+                       } catch {
+                           promise(.failure(error))
+                       }
+                   }
+               }
+               .eraseToAnyPublisher()
+       }
+    
+    
     func saveContext(_ context: NSManagedObjectContext) {
             if context.hasChanges {
                 do {

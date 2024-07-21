@@ -119,6 +119,8 @@ class SignUpViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
+        navigationItem.hidesBackButton = true
+
         // Add subviews
         view.addSubview(nameTextField)
         view.addSubview(emailTextField)
