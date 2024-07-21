@@ -20,10 +20,15 @@ class IncomeViewModel {
     private var cdPublisher: CDPublisher<TransactionDB>?
     
     // New property to store all transactions
-    private var allTransactions: [Transaction] = []
+    private var allTransactions: [Transaction] = [] {
+        didSet {
+            filterTransactions()
+        }
+    }
     
     init() {
         setupCDPublisher()
+        observeCoreDataChanges()
     }
     
     func fetchTransactions() -> AnyPublisher<[Transaction], Error> {
@@ -66,6 +71,14 @@ class IncomeViewModel {
             })
             .store(in: &cancellables)
     }
+    
+    private func observeCoreDataChanges() {
+          NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave, object: coreDataManager.context)
+              .sink { [weak self] _ in
+                  self?.setupCDPublisher()
+              }
+              .store(in: &cancellables)
+      }
     
     private func filterTransactions() {
         let now = Date()

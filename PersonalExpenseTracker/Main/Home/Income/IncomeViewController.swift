@@ -8,6 +8,16 @@ class IncomeViewController: UIViewController {
     
     let periodButton = UIButton(primaryAction: nil)
     
+    
+    init(){
+        super.init(nibName: nil, bundle: nil)
+        viewModel = IncomeViewModel()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let totalBudgetLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .lightGray

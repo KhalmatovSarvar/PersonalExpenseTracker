@@ -14,40 +14,10 @@
             filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2ECFCF45-659D-4673-A729-9155607ADBC7 - 6df9a181ea6023cd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; (new: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toDelete: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, toUpdate: Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
-                  moduleName = "PersonalExpenseTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225">
-               </Location>
-               <Location
-                  uuid = "2ECFCF45-659D-4673-A729-9155607ADBC7 - b5e5f88beb90d91b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;, Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in closure #1 (Swift.Array&lt;PersonalExpenseTracker.Transaction&gt;) -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt; in PersonalExpenseTracker.DataRepository.synchronizeTransactionsFromFirestore() -&gt; Combine.AnyPublisher&lt;(), Swift.Error&gt;"
-                  moduleName = "PersonalExpenseTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sarvar/Desktop/developer/PersonalExpenseTracker/PersonalExpenseTracker/Repository/DataRepository.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -60,8 +30,8 @@
             filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
          </BreakpointContent>
@@ -76,8 +46,8 @@
             filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
          </BreakpointContent>
@@ -92,8 +62,8 @@
             filePath = "PersonalExpenseTracker/Repository/DataRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "synchronizeTransactionsFromFirestore()"
             landmarkType = "7">
          </BreakpointContent>
